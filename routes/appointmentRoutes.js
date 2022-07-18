@@ -11,8 +11,8 @@ const {
 router.get("/", getAllAppointment);
 router.post("/", createOneAppointment);
 
-router.get("/:appointmentID", getOneAppointment);
-router.patch("/:appintmentID", updateOneAppointment);
-router.delete("/:appointmentID", deleteOneAppointment);
+router.get("/:appointmentId", getOneAppointment);
+router.patch("/:appointmentId", updateOneAppointment);
+router.delete("/:appointmentId", deleteOneAppointment);
 
 module.exports = router;
