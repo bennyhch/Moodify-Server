@@ -5,8 +5,10 @@ const morgan = require("morgan");
 const connectDB = require("./db/connectDB");
 
 const port = process.env.PORT || 8080;
+
 const express = require("express");
 const app = express();
+const cookieParser = require("cookie-parser");
 
 // routes
 const userRouter = require("./routes/userRoutes");
@@ -16,6 +18,7 @@ const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
 
 app.use(morgan("tiny"));
+app.use(cookieParser(process.env.SECRET_KEY));
 app.use(express.json());
 
 app.use(userRouter);

@@ -1,6 +1,7 @@
 const { StatusCodes } = require("http-status-codes");
 const CustomError = require("../errors");
 const User = require("../models/User");
+const { createToken, attachCookieToResp } = require("../utils/jwt");
 
 const register = async (req, res) => {
   const { username, password, email } = req.body;
@@ -14,8 +15,11 @@ const register = async (req, res) => {
   if (isCurrentUser) {
     throw new CustomError.BadRequestError("Account already existed");
   }
-
   const user = await User.create({ username, password, email });
+
+  const token = createToken({ email });
+  attachCookieToResp({ token, res });
+
   res.status(StatusCodes.CREATED).json({ msg: "Account created", user });
 };
 
@@ -24,7 +28,12 @@ const login = async (req, res) => {
 };
 
 const logout = async (req, res) => {
-  res.send("logout route");
+  res.cookie("token", "", {
+    httpOnly: true,
+    maxAge: 1,
+    secure: true,
+  });
+  res.status(StatusCodes.OK).json({ msg: "Logout" });
 };
 
 module.exports = { register, login, logout };
