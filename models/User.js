@@ -1,3 +1,5 @@
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 const validator = require("validator");
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
@@ -23,6 +25,11 @@ const UserSchema = new Schema({
     required: [true, "Please provide password"],
     minlength: 5,
   },
+});
+
+UserSchema.pre("save", async function () {
+  let salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
 });
 
 module.exports = mongoose.model("User", UserSchema);

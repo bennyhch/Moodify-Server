@@ -15,9 +15,10 @@ const userRouter = require("./routes/userRoutes");
 const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
 
-app.use(userRouter);
-
 app.use(morgan("tiny"));
+app.use(express.json());
+
+app.use(userRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
