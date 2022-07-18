@@ -12,6 +12,7 @@ const cookieParser = require("cookie-parser");
 
 // routes
 const userRouter = require("./routes/userRoutes");
+const appointmentRouter = require("./routes/appointmentRoutes");
 
 // error handling middleware
 const notFoundMiddleware = require("./middleware/not-found");
@@ -22,6 +23,7 @@ app.use(cookieParser(process.env.SECRET_KEY));
 app.use(express.json());
 
 app.use(userRouter);
+app.use("/appointment", appointmentRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
