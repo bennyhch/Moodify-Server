@@ -1,8 +1,10 @@
 const jwt = require("jsonwebtoken");
 
-const createToken = ({ email }) => {
+const createToken = ({ email, userId }) => {
   // check if username and email exist in the controller before passing the args to this helper function
-  return jwt.sign({ email }, process.env.SECRET_KEY);
+  return jwt.sign({ email, userId }, process.env.SECRET_KEY, {
+    expiresIn: process.env.COOKIE_LIFETIME,
+  });
 };
 
 const attachCookieToResp = ({ token, res }) => {

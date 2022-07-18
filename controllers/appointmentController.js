@@ -1,11 +1,17 @@
-const appointment = require("../models/Appointment");
+const { StatusCodes } = require("http-status-codes");
+const Appointment = require("../models/Appointment");
 
-const getAllAppointment = async (req, res) => {
-  res.send("get all appointment");
-};
+const getAllAppointment = async (req, res) => {};
 
 const createOneAppointment = async (req, res) => {
-  res.send("create one appointment");
+  // some checking for the data input?
+  req.body.user = req.user;
+  console.log("req.body", req.body);
+  const appointment = await Appointment.create({
+    ...req.body,
+    user: req.body.user.userId,
+  });
+  res.status(StatusCodes.CREATED).json({ appointment });
 };
 
 const getOneAppointment = async (req, res) => {

@@ -6,10 +6,13 @@ const AppointmentSchema = new Schema(
     doctorName: {
       type: String,
       maxlength: [100, "Name cannot be more than 100 characters"],
+      required: true,
     },
     dateOfAppointment: {
       type: Date,
       min: new Date(),
+      required: true,
+      // unique??
     },
     location: {
       type: String,
@@ -18,6 +21,7 @@ const AppointmentSchema = new Schema(
     // doesn't make sense ?
     attended: {
       type: Boolean,
+      default: false,
     },
     user: {
       type: mongoose.Types.ObjectId,
@@ -25,7 +29,7 @@ const AppointmentSchema = new Schema(
       required: true,
     },
   },
-  { timestamp: true }
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("Appointment", AppointmentSchema);

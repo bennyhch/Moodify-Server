@@ -18,7 +18,7 @@ const register = async (req, res) => {
   }
   const user = await User.create({ username, password, email });
 
-  const token = createToken({ email });
+  const token = createToken({ email, userId: user._id });
   attachCookieToResp({ token, res });
 
   res.status(StatusCodes.CREATED).json({ msg: "Account created", user });
@@ -42,7 +42,7 @@ const login = async (req, res) => {
     throw new CustomError.UnauthenticatedError("Incorrect Password");
   }
 
-  const token = createToken({ email });
+  const token = createToken({ email, userId: user._id });
   attachCookieToResp({ token, res });
 
   res.status(StatusCodes.OK).json({ msg: "SUccessful login", user });
