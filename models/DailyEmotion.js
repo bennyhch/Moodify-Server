@@ -5,11 +5,11 @@ const DailyEmotionSchema = new Schema(
   {
     psychoticSymptoms: {
       type: Boolean,
-      required: true,
+      // required: true,
     },
     panicAttack: {
       type: Boolean,
-      required: true,
+      // required: true,
     },
     hoursOfSleep: {
       type: Number,
@@ -49,6 +49,7 @@ const DailyEmotionSchema = new Schema(
     day: {
       type: Date,
       required: [true, "Please provide the date relevant for the input"],
+      unique: true,
     },
     user: {
       type: mongoose.Types.ObjectId,
