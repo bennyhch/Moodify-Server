@@ -8,9 +8,9 @@ const eventSchema = new Schema(
       enum: ["happy", "sad", "anger", "fear", " disgust"],
       required: [true, "Please select an emotion"],
     },
-    event: {
+    incident: {
       type: String,
-      required: [true, "Please provide an triggering event"],
+      required: [true, "Please provide an triggering incident"],
     },
     thought: {
       type: String,
@@ -26,7 +26,7 @@ const eventSchema = new Schema(
     },
     timeOfEvent: {
       type: Date,
-      max: new Date(),
+      max: new Date().setDate(new Date().getDate() + 1),
       required: true,
     },
     user: {
