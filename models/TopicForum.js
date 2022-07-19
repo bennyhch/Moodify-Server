@@ -14,7 +14,7 @@ const TopicForumSchema = new Schema(
     },
     author: {
       type: mongoose.Types.ObjectId,
-      ref: "user",
+      ref: "User",
       required: true,
     },
     numOfHeart: {
@@ -26,7 +26,7 @@ const TopicForumSchema = new Schema(
       default: false,
       type: Boolean,
     },
-    // reviews?? virtual ??
+    // replies?? virtual ??
   },
   { timestamps: true }
 );
