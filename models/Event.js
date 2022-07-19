@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const eventSchema = new Schema(
+const EventSchema = new Schema(
   {
     emotions: {
       type: String,
@@ -38,4 +38,4 @@ const eventSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Event", eventSchema);
+module.exports = mongoose.model("Event", EventSchema);
