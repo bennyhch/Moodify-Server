@@ -15,6 +15,7 @@ const userRouter = require("./routes/userRoutes");
 const appointmentRouter = require("./routes/appointmentRoutes");
 const eventRouter = require("./routes/eventRoutes");
 const dailyEmotionRouter = require("./routes/dailyEmotionRoutes");
+const topicForumRouter = require("./routes/topicForumRoutes");
 
 const authorization = require("./middleware/authorization");
 
@@ -29,7 +30,8 @@ app.use(express.json());
 app.use(userRouter);
 app.use("/appointment", authorization, appointmentRouter);
 app.use("/event", authorization, eventRouter);
-app.use("/dailyEmotion", authorization, dailyEmotionRouter);
+app.use("/dailyemotion", authorization, dailyEmotionRouter);
+app.use("/forumtopic", authorization, topicForumRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
