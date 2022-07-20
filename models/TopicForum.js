@@ -27,6 +27,10 @@ const TopicForumSchema = new Schema(
       default: false,
       type: Boolean,
     },
+    replies: {
+      type: mongoose.Types.ObjectId,
+      ref: "Replies",
+    },
     // replies?? virtual ??
   },
   { timestamps: true }

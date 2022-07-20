@@ -17,7 +17,10 @@ const RepliesSchema = new Schema(
       ref: "TopicForum",
       required: true,
     },
-    isReported: Boolean,
+    isReported: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
