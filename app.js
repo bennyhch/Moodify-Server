@@ -9,6 +9,7 @@ const port = process.env.PORT || 8080;
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 // routes
 const userRouter = require("./routes/userRoutes");
@@ -24,6 +25,7 @@ const authorization = require("./middleware/authorization");
 const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
 
+app.use(cors());
 app.use(morgan("tiny"));
 app.use(cookieParser(process.env.SECRET_KEY));
 app.use(express.json());
