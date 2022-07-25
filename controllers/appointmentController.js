@@ -5,7 +5,9 @@ const checkPermission = require("../utils/checkPermission");
 
 const getAllAppointment = async (req, res) => {
   const { userId } = req.user;
-  const appointments = await Appointment.find({ user: userId });
+  const appointments = await Appointment.find({ user: userId }).sort({
+    dateOfAppointment: 1,
+  });
   if (appointments.length < 1) {
     throw new CustomError.BadRequestError("No appointments added");
   }
