@@ -5,7 +5,7 @@ const EventSchema = new Schema(
   {
     emotions: {
       type: String,
-      enum: ["happy", "sad", "anger", "anxious", " love"],
+      enum: ["happy", "sad", "anger", "anxious", "love"],
       required: [true, "Please select an emotion"],
     },
     incident: {
