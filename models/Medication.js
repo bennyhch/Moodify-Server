@@ -23,8 +23,8 @@ const MedicationSchema = new Schema(
     },
     timeOfDay: {
       type: String,
-      enum: ["am", "mid-day", "pm", "am&pm", "any"],
-      default: "any",
+      enum: ["AM", "Mid-day", "PM", "AM & PM", "Any"],
+      default: "Any",
     },
     user: {
       type: mongoose.Types.ObjectId,
