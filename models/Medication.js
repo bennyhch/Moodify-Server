@@ -14,11 +14,12 @@ const MedicationSchema = new Schema(
     },
     units: {
       type: String,
-      minlength: [50, "units cannot be more than 50 characters"],
+      maxlength: [50, "units cannot be more than 50 characters"],
     },
     frequency: {
       type: String,
       enum: ["Every day", "As needed"],
+      default: "As needed",
     },
     timeOfDay: {
       type: String,
