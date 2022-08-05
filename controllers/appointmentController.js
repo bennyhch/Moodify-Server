@@ -8,9 +8,9 @@ const getAllAppointment = async (req, res) => {
   const appointments = await Appointment.find({ user: userId }).sort({
     dateOfAppointment: 1,
   });
-  if (appointments.length < 1) {
-    throw new CustomError.BadRequestError("No appointments added");
-  }
+  // if (appointments.length < 1) {
+  //   throw new CustomError.BadRequestError("No appointments added");
+  // }
 
   res.status(StatusCodes.OK).json({ appointments });
 };
