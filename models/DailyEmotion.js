@@ -5,46 +5,54 @@ const DailyEmotionSchema = new Schema(
   {
     psychoticSymptoms: {
       type: Boolean,
-      // required: true,
+      default: false,
     },
     panicAttack: {
       type: Boolean,
-      // required: true,
+      default: false,
     },
     hoursOfSleep: {
       type: Number,
       min: 0,
       max: 24,
+      default: 0,
     },
     depressionExtreme: {
       type: Number,
       min: 0,
       max: 3,
+      default: 0,
     },
     elevationExtreme: {
       type: Number,
       min: 0,
       max: 3,
+      default: 0,
     },
     anxietyExtreme: {
       type: Number,
       min: 0,
+      default: 0,
+
       max: 3,
     },
     restlessness: {
       type: Number,
       min: 0,
       max: 3,
+      default: 0,
     },
     irritability: {
       type: Number,
       min: 0,
       max: 3,
+      default: 0,
     },
     suicidal: {
       type: Number,
       min: 0,
       max: 3,
+      default: 0,
     },
     day: {
       type: Date,
