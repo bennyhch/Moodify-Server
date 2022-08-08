@@ -30,34 +30,26 @@
 # Getting started
 
 ## Prerequisites
-In order to get the app running, you'll need to install MongoDB. For more info on installation, please refer to [here](https://www.mongodb.com/docs/manual/installation/). 
 
-## Installation
-1. Clone the current repo and enter the _server_ directory, next, install dependencies 
-```
-git clone https://github.com/bennyhch/Moodify.git 
-cd server
-npm install
-npm install nodemon 
-```
+In order to get the app running, you'll need to 
+1. Rename .env.temp to .env
+2. Fill out your own values for MONGO_URI, PORT, SECRET_KEY, COOKIE_LIFETIME
 
-2. Start the server
+## Installation and start the server
 ```
-npx nodemon 
-```
-
-3. Move to the _client_ and start development build after intalling the dependencies
-```
-cd ../client
 npm install 
-npm start
+npm start 
 ```
 
-## Built with
+## Front-end
+1. You will need the Client repo to run this app. This can be found [here](https://github.com/bennyhch/Moodify-Client).
+2. Next, check the Client repo readme for information on installation of the app.
+
+## Tech Stack
+- Redux Toolkit
 - Express.js
-- React with React-Router
+- React 
 - MongoDB with Mongoose 
-- Figma 
 
 ## Author
 [Ben Ho](https://www.github.com/bennyhch) - [Linkedin](https://www.linkedin.com/in/ho-ben/)
