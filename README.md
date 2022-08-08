@@ -1,8 +1,8 @@
 # Moodify-Server
 
 - A mood-tracking and journaling app for users to keep track of their mood throughout the days
-- Helps to understand one's negative behaviors and thoughts, as well as the triggering events to a particular negative or positive emotion
-- Identify symptoms related to Post-Traumatic Stress Disorder, Bioplar Disorder, Depression, Anxiety Disorder
+- Provides insights into one's negative behaviors and thoughts, as well as the triggering events to a particular negative or positive emotion
+- Identifies symptoms related to Post-Traumatic Stress Disorder, Bioplar Disorder, Depression, Anxiety Disorder
 
 ## Screenshot 
 
