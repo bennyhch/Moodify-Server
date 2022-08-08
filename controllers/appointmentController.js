@@ -18,7 +18,7 @@ const getAllAppointment = async (req, res) => {
 const createOneAppointment = async (req, res) => {
   // some checking for the data input?
   req.body.user = req.user;
-  console.log("req.body", req.body);
+  // console.log("req.body", req.body);
   const appointment = await Appointment.create({
     ...req.body,
     user: req.body.user.userId,
