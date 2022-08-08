@@ -10,9 +10,8 @@ const AppointmentSchema = new Schema(
     },
     dateOfAppointment: {
       type: Date,
-      min: new Date(),
+      // min: new Date(),
       required: true,
-      // unique??
     },
     location: {
       type: String,
