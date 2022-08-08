@@ -51,6 +51,7 @@ npm start
 - Express.js
 - React 
 - MongoDB with Mongoose 
+- JSON Web Token
 
 ## Author
 [Ben Ho](https://www.github.com/bennyhch) - [Linkedin](https://www.linkedin.com/in/ho-ben/)
