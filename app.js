@@ -3,6 +3,9 @@ require("express-async-errors");
 
 const morgan = require("morgan");
 const connectDB = require("./db/connectDB");
+const helmet = require("helmet");
+const xss = require("xss-clean");
+const mongoSanitize = require("express-mongo-sanitize");
 
 const port = process.env.PORT || 8080;
 
@@ -30,6 +33,10 @@ app.use(cors());
 app.use(morgan("tiny"));
 app.use(cookieParser(process.env.SECRET_KEY));
 app.use(express.json());
+
+app.use(helmet());
+app.use(xss());
+app.use(mongoSanitize());
 
 app.use(userRouter);
 app.use("/appointment", authorization, appointmentRouter);
