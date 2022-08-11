@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { register, login, logout } = require("../controllers/userController");
 
-import rateLimiter from "express-rate-limit";
+const rateLimiter = require("express-rate-limit");
 const apiLimiter = rateLimiter({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 10,
